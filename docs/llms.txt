@@ -1,0 +1,31 @@
+# DALUDI Landing Page - Contexto para IA
+
+Este documento resume a estrutura do projeto para facilitar a compreensão por outros assistentes de IA (como Claude, ChatGPT e Copilot).
+
+## 🎯 Objetivo
+Landing page profissional de Arquitetura de IA para a DALUDI. Design premium, modo escuro, foco executivo.
+
+## 🛠️ Stack Principal
+- **HTML/CSS/JS**: Vanilla (Puro), tudo contido em um único arquivo `index.html`.
+- **Cores**: Base #050505, Destaque #00F5C4 (Teal).
+- **Assets**: Localizados em `/imagens_daludi/`.
+
+## 🧬 Componentes Chave
+- **Hero**: Canvas interativo de partículas (rede neural).
+- **Interação**: Scroll Reveal via Intersection Observer.
+- **Formulário**: Validação nativa com envio AJAX.
+- **Cursor**: Custom lag-cursor para desktop.
+
+## 📜 Regras de Desenvolvimento
+1. Manter o código em arquivo único.
+2. Nunca adicionar frameworks extras.
+3. Seguir rigorosamente a paleta do Design System.
+4. Animações devem ser fluidas e leves.
+
+## 📂 Arquivos de Referência
+- `GEMINI.md`: Regras de negócio e design detalhadas.
+- `index.html`: Arquivo principal contendo toda a lógica.
+- `/docs/`: Documentação detalhada em Markdown.
+
+---
+*LLM-Friendly context for DALUDI Project*

@@ -1,0 +1,38 @@
+# OS Metadata
+.DS_Store
+Thumbs.db
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment and Secrets
+.env
+.env.local
+.env.*.local
+
+# AI/Agent Context (Optional: keep if you want other agents to have context on GitHub)
+.gemini/
+.agent/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Node (in case you use local tools)
+node_modules/
+package-lock.json
+dist/
+build/
+
+Prompt_criacao_lp.md
+GEMINI.md
