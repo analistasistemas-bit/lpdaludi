@@ -304,9 +304,17 @@
       transition: height .3s ease;
     }
 
+    .navbar.scrolled .navbar-logo img {
+      height: 56px;
+    }
+
     @media(min-width: 1024px) {
       .navbar-logo img {
         height: 160px;
+      }
+
+      .navbar.scrolled .navbar-logo img {
+        height: 80px;
       }
     }
 
@@ -393,7 +401,7 @@
       height: 100dvh;
       background: var(--bg-secondary);
       z-index: 99999;
-      padding: 130px 32px 32px;
+      padding: 100px 32px 32px;
       transition: right .4s cubic-bezier(0.16, 1, 0.3, 1);
       border-left: 1px solid var(--border);
       overflow-y: auto;
