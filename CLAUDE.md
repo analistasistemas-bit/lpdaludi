@@ -35,17 +35,17 @@ O entregável é um **único arquivo `index.html`** autocontido com CSS e JS emb
 ├── CLAUDE.md                     ← Este arquivo
 ├── GEMINI.md                     ← Instruções complementares
 └── imagens_daludi/               ← Assets oficiais da marca
-    ├── Logo_Horizontal_principal.png
-    ├── Logo_vertical.png
-    ├── Simbolo_isolado.png
+    ├── LogoHorizontalprincipal.png
+    ├── Logovertical.png
+    ├── Simboloisolado.png
     ├── Favicon.png
     ├── wordmark.png
-    ├── Logo_para_fundo_claro.png
-    ├── Logo_Monocromatica.png
-    ├── Versao_Outline.png
-    ├── Icone_para_redes_sociais.png
-    ├── Flat_vetorial_Limpa.png
-    └── Versao_Falt_profissional.png
+    ├── Logoparafundoclaro.png
+    ├── LogoMonocromatica.png
+    ├── VersaoOutline.png
+    ├── Iconepararedessociais.png
+    ├── FlatvetorialLimpa.png
+    └── VersaoFaltprofissional.png
 ```
 
 ---
@@ -155,11 +155,11 @@ Site:      https://www.daludi.com.br
 
 | Contexto | Arquivo a usar |
 |----------|---------------|
-| Navbar (fundo escuro) | `imagens_daludi/Logo_Horizontal_principal.png` |
-| Footer | `imagens_daludi/Logo_Horizontal_principal.png` |
+| Navbar (fundo escuro) | `imagens_daludi/LogoHorizontalprincipal.png` |
+| Footer | `imagens_daludi/LogoHorizontalprincipal.png` |
 | `<link rel="icon">` | `imagens_daludi/Favicon.png` |
-| Isotipo isolado / Hero | `imagens_daludi/Simbolo_isolado.png` |
-| Meta OG / Social | `imagens_daludi/Logo_Horizontal_principal.png` |
+| Isotipo isolado / Hero | `imagens_daludi/Simboloisolado.png` |
+| Meta OG / Social | `imagens_daludi/LogoHorizontalprincipal.png` |
 
 ---
 

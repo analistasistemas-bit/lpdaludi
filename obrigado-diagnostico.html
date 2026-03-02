@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado | DALUDI IA</title>
+    <meta name="description" content="Sua solicitação de diagnóstico foi recebida com sucesso.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --text-main: #ffffff;
+            --text-muted: #8FA3A1;
+            --brand: #2EC4B6;
+            --brand-hover: #26a599;
+            --border: #1F2A33;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-main);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        header {
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 160px;
+            display: block;
+        }
+
+        @media (min-width: 1024px) {
+            .logo-container img {
+                height: 240px;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .content-box {
+            max-width: 500px;
+        }
+
+        .icon-success {
+            color: var(--brand);
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: clamp(28px, 4vw, 40px);
+            margin-bottom: 16px;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--brand);
+            color: var(--bg-primary);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: var(--brand-hover);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container logo-container">
+            <img src="imagens_daludi/LogoHorizontalprincipal_transparente.png" alt="DALUDI">
+        </div>
+    </header>
+
+    <main class="main-content container">
+        <div class="content-box">
+            <div class="icon-success">✓</div>
+            <h1>Recebemos sua solicitação.</h1>
+            <p>Nossa equipe analisará suas informações estruturais e retornará com os próximos passos estratégicos em
+                breve.</p>
+            <a href="/" class="btn">Voltar para o site</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            &copy; <span id="year"></span> DALUDI Inteligência Artificial Estratégica. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
