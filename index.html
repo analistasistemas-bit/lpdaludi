@@ -30,6 +30,7 @@
     ]
   }
   </script>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="imagens_daludi/Simboloisolado.png">
   <link rel="icon" type="image/png" sizes="192x192" href="imagens_daludi/Simboloisolado.png">
   <link rel="apple-touch-icon" href="imagens_daludi/Simboloisolado.png">
@@ -1799,17 +1800,17 @@
       </div>
       <div class="metrics-grid">
         <div class="reveal">
-          <div class="metric-value"><span class="counter" data-target="37">0</span>%</div>
+          <div class="metric-value"><span class="counter" data-target="37">37</span>%</div>
           <div class="metric-label">Margem perdida</div>
           <div class="metric-context">da margem operacional média perdida em ineficiências não mapeadas</div>
         </div>
         <div class="reveal">
-          <div class="metric-value"><span class="counter" data-target="6">0</span>h/dia</div>
+          <div class="metric-value"><span class="counter" data-target="6">6</span>h/dia</div>
           <div class="metric-label">Tempo gerencial</div>
           <div class="metric-context">média consumida por processos que poderiam ser automatizados</div>
         </div>
         <div class="reveal">
-          <div class="metric-value"><span class="counter" data-target="3">0</span>×</div>
+          <div class="metric-value"><span class="counter" data-target="3">3</span>×</div>
           <div class="metric-label">Velocidade de crescimento</div>
           <div class="metric-context">mais rápido para empresas que operam com decisões baseadas em dados</div>
         </div>
@@ -2448,6 +2449,7 @@
 
       function animateCounter(el) {
         const target = parseInt(el.dataset.target, 10);
+        el.textContent = '0';
         const duration = 2000;
         const start = performance.now();
         function update(now) {
