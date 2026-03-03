@@ -144,7 +144,7 @@ O entregável é um **único arquivo `index.html`** autocontido com CSS e JS emb
 
 ```
 WhatsApp:  https://wa.me/5581996459595
-E-mail:    contato@daludi.com.br
+E-mail:    start@daludi.com.br
 LinkedIn:  https://www.linkedin.com/in/diego-araujo-1b180421/
 Site:      https://www.daludi.com.br
 ```
