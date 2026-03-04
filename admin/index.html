@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - DALUDI</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #050505;
+            --bg-secondary: #0B0F14;
+            --bg-card: #11151A;
+            --bg-surface: #1A1F24;
+            --brand: #00F5C4;
+            --brand-hover: #00C2A8;
+            --brand-active: #00A38C;
+            --text-main: #E6F1F0;
+            --text-muted: #8FA3A1;
+            --border: #1F2A33;
+            --glow: rgba(0, 245, 196, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+
+        p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Helpers */
+        .text-brand {
+            color: var(--brand);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        header {
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+            /* Adicionado para centralizar a logo */
+            height: 100px;
+        }
+
+        .header-logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo img {
+            max-width: 220px;
+            height: auto;
+            filter: drop-shadow(0 4px 12px rgba(0, 245, 196, 0.2));
+        }
+
+        main {
+            flex: 1;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Forms (Login/Register) */
+        .auth-container {
+            max-width: 400px;
+            margin: 80px auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--brand);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--brand);
+            box-shadow: 0 0 0 3px var(--glow);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: var(--brand);
+            color: var(--bg-primary);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        button:hover {
+            background: var(--brand-hover);
+            transform: translateY(-2px);
+        }
+
+        button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .auth-switch a {
+            color: var(--brand);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-switch a:hover {
+            text-decoration: underline;
+        }
+
+        .feedback-msg {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .feedback-msg.error {
+            background: rgba(255, 68, 68, 0.1);
+            color: #ff4444;
+            border: 1px solid rgba(255, 68, 68, 0.2);
+        }
+
+        .feedback-msg.success {
+            background: rgba(0, 245, 196, 0.1);
+            color: var(--brand);
+            border: 1px solid var(--glow);
+        }
+
+        /* Dashboard */
+        .tabs {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 16px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            width: auto;
+        }
+
+        .tab-btn:hover {
+            background: var(--bg-surface);
+            color: var(--text-main);
+            transform: none;
+        }
+
+        .tab-btn.active {
+            color: var(--brand);
+            background: var(--glow);
+        }
+
+        /* Tables & Lists */
+        .data-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background: var(--bg-surface);
+            padding: 16px;
+            font-weight: 500;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            cursor: pointer;
+            user-select: none;
+            transition: color 0.2s;
+        }
+
+        th:hover {
+            color: var(--text-main);
+        }
+
+        th.sortable::after {
+            content: ' ↕';
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        th.sort-asc::after {
+            content: ' ↑';
+            opacity: 1;
+            color: var(--brand);
+        }
+
+        th.sort-desc::after {
+            content: ' ↓';
+            opacity: 1;
+            color: var(--brand);
+        }
+
+        td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+            color: var(--text-main);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Estilização Premium para Selects Form/Filtro */
+        .custom-select {
+            appearance: none;
+            -webkit-appearance: none;
+            padding: 10px 32px 10px 14px;
+            border-radius: 8px;
+            background: var(--bg-surface);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            font-size: 14px;
+            outline: none;
+            min-width: 140px;
+            cursor: pointer;
+            color-scheme: dark;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%238FA3A1' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 10px;
+            transition: border-color 0.2s;
+        }
+
+        .custom-select:hover,
+        .custom-select:focus {
+            border-color: var(--brand);
+        }
+
+        .custom-select option {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            padding: 12px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-pending {
+            background: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+        }
+
+        .status-approved {
+            background: rgba(0, 245, 196, 0.1);
+            color: var(--brand);
+        }
+
+        .status-blocked {
+            background: rgba(255, 68, 68, 0.1);
+            color: #ff4444;
+        }
+
+        .action-btn {
+            padding: 8px 16px;
+            font-size: 13px;
+            width: auto;
+            border-radius: 6px;
+        }
+
+        .action-btn.reject {
+            background: transparent;
+            border: 1px solid #ff4444;
+            color: #ff4444;
+            margin-left: 8px;
+        }
+
+        .action-btn.reject:hover {
+            background: rgba(255, 68, 68, 0.1);
+        }
+
+        .empty-state {
+            padding: 40px;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        /* Logout */
+        .logout-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            width: auto;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        .logout-btn:hover {
+            background: var(--bg-card);
+            border-color: var(--brand);
+            color: var(--brand);
+            transform: none;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 600px;
+            padding: 32px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--text-main);
+            background: transparent;
+            transform: none;
+        }
+
+        .detail-row {
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--bg-surface);
+            padding-bottom: 8px;
+        }
+
+        .detail-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .detail-value {
+            font-size: 16px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header (always visible, actions change based on auth) -->
+    <header id="mainHeader" class="hidden">
+        <div class="header-logo">
+            <img src="../imagens_daludi/LogoHorizontalprincipal_transparente.png" alt="DALUDI"
+                onerror="this.src='/imagens_daludi/LogoHorizontalprincipal_transparente.png'">
+        </div>
+        <div id="headerActions">
+            <span id="welcomeUser" style="margin-right: 16px; color: var(--text-muted); font-size: 14px;"></span>
+            <button class="logout-btn" onclick="logout()">Sair</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- View: Authentication -->
+        <section id="authView">
+            <div style="text-align: center; margin-bottom: -50px; position: relative; z-index: 10;">
+                <img src="../imagens_daludi/LogoHorizontalprincipal_transparente.png" alt="DALUDI"
+                    style="max-width: 220px; height: auto; filter: drop-shadow(0 4px 12px rgba(0, 245, 196, 0.2));">
+            </div>
+            <div class="auth-container">
+                <h2 id="authTitle">Login <span class="text-brand">Admin</span></h2>
+                <p id="authDesc" style="margin-bottom: 24px;">Acesse o painel de gestão de leads.</p>
+
+                <form id="authForm" onsubmit="handleAuth(event)">
+                    <div class="form-group">
+                        <label for="username">Usuário</label>
+                        <input type="text" id="username" required autocomplete="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" required autocomplete="current-password">
+                    </div>
+
+                    <button type="submit" id="submitBtn">Entrar</button>
+                    <div id="authFeedback" class="feedback-msg hidden"></div>
+                </form>
+
+                <div class="auth-switch">
+                    <span id="switchText">Não tem acesso? <a href="#" onclick="toggleAuthMode(event)">Solicite acesso
+                            aqui</a></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- View: Dashboard -->
+        <section id="dashboardView" class="hidden">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('leads')">Gestão de Leads</button>
+                <button class="tab-btn" onclick="switchTab('users')">Gestão de Acessos</button>
+            </div>
+
+            <!-- Tab: Leads -->
+            <div id="tabLeads" class="data-card">
+                <div class="filters-bar"
+                    style="padding: 16px 24px; border-bottom: 1px solid var(--border); display: flex; gap: 24px; align-items: flex-end; flex-wrap: wrap; background: var(--bg-card);">
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="font-size: 13px; margin-bottom: 0; color: var(--text-muted);">Data De</label>
+                        <input type="date" id="filterDateFrom"
+                            style="padding: 10px; border-radius: 8px; font-size: 14px; background: var(--bg-surface); color: var(--text-main); border: 1px solid var(--border); color-scheme: dark;"
+                            onchange="applyFilters()">
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="font-size: 13px; margin-bottom: 0; color: var(--text-muted);">Data Até</label>
+                        <input type="date" id="filterDateTo"
+                            style="padding: 10px; border-radius: 8px; font-size: 14px; background: var(--bg-surface); color: var(--text-main); border: 1px solid var(--border); color-scheme: dark;"
+                            onchange="applyFilters()">
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="font-size: 13px; margin-bottom: 0; color: var(--text-muted);">Origem</label>
+                        <select id="filterOrigem" class="custom-select" onchange="applyFilters()">
+                            <option value="">Todas</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="font-size: 13px; margin-bottom: 0; color: var(--text-muted);">Status</label>
+                        <select id="filterStatus" class="custom-select" onchange="applyFilters()">
+                            <option value="">Todos</option>
+                        </select>
+                    </div>
+                    <div
+                        style="display: flex; gap: 12px; margin-left: auto; align-items: center; justify-content: center; height: 41px;">
+                        <button class="action-btn" onclick="clearFilters()"
+                            style="background: transparent; border: 1px solid var(--border); color: var(--text-main); margin: 0; height: 100%;">Mostrar
+                            Geral</button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="sortable" onclick="sortTable('nome', 'string', this)">Nome</th>
+                                <th class="sortable" onclick="sortTable('empresa', 'string', this)">Empresa</th>
+                                <th class="sortable" onclick="sortTable('cargo', 'string', this)">Cargo</th>
+                                <th class="sortable" onclick="sortTable('whatsapp', 'string', this)">WhatsApp</th>
+                                <th class="sortable" onclick="sortTable('email', 'string', this)">E-mail</th>
+                                <th class="sortable" onclick="sortTable('origem', 'string', this)">Origem</th>
+                                <th class="sortable" onclick="sortTable('status', 'string', this)">Status</th>
+                                <th class="sortable sort-desc" onclick="sortTable('created_at', 'date', this)">Data</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leadsTableBody">
+                            <tr>
+                                <td colspan="8" class="empty-state">Carregando leads...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab: Users -->
+            <div id="tabUsers" class="data-card hidden">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Usuário</th>
+                                <th>Status</th>
+                                <th>Data de Solicitação</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <tr>
+                                <td colspan="4" class="empty-state">Carregando usuários...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Detalhes do Lead -->
+    <div id="leadModal" class="modal-overlay" onclick="if(event.target===this) closeLeadModal()">
+        <div class="modal">
+            <button class="modal-close" onclick="closeLeadModal()">&times;</button>
+            <h2 style="margin-bottom: 24px; font-size: 20px;">Detalhes do Registro</h2>
+            <div id="leadDetailsContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // API Base URL
+        const API_URL = 'https://2xnqiy3h.us-east.insforge.app/functions';
+
+        // State
+        let isLoginMode = true;
+        let authCreds = null; // { token: 'Basic base64...' }
+
+        // Elements
+        const authView = document.getElementById('authView');
+        const dashboardView = document.getElementById('dashboardView');
+        const mainHeader = document.getElementById('mainHeader');
+        const authFeedback = document.getElementById('authFeedback');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Check if already logged in
+        window.onload = () => {
+            const savedToken = localStorage.getItem('daludi_admin_token');
+            const savedUser = localStorage.getItem('daludi_admin_user');
+            if (savedToken && savedUser) {
+                authCreds = savedToken;
+                document.getElementById('welcomeUser').textContent = `Olá, ${savedUser}`;
+                showDashboard();
+            }
+        };
+
+        // UI toggles
+        function toggleAuthMode(e) {
+            e.preventDefault();
+            isLoginMode = !isLoginMode;
+            authFeedback.className = 'feedback-msg hidden';
+
+            document.getElementById('authTitle').innerHTML = isLoginMode
+                ? 'Login <span class="text-brand">Admin</span>'
+                : 'Solicitar <span class="text-brand">Acesso</span>';
+
+            document.getElementById('authDesc').textContent = isLoginMode
+                ? 'Acesse o painel de gestão de leads.'
+                : 'Crie seu usuário. O acesso precisa ser aprovado pelo admin.';
+
+            document.getElementById('submitBtn').textContent = isLoginMode ? 'Entrar' : 'Solicitar Cadastro';
+
+            document.getElementById('switchText').innerHTML = isLoginMode
+                ? 'Não tem acesso? <a href="#" onclick="toggleAuthMode(event)">Solicite acesso aqui</a>'
+                : 'Já tem acesso? <a href="#" onclick="toggleAuthMode(event)">Faça login aqui</a>';
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('tabLeads').classList.add('hidden');
+            document.getElementById('tabUsers').classList.add('hidden');
+
+            if (tab === 'leads') {
+                document.querySelectorAll('.tab-btn')[0].classList.add('active');
+                document.getElementById('tabLeads').classList.remove('hidden');
+                fetchLeads();
+            } else {
+                document.querySelectorAll('.tab-btn')[1].classList.add('active');
+                document.getElementById('tabUsers').classList.remove('hidden');
+                fetchUsers();
+            }
+        }
+
+        function showMessage(msg, isError = false) {
+            authFeedback.textContent = msg;
+            authFeedback.className = `feedback-msg ${isError ? 'error' : 'success'}`;
+        }
+
+        function showDashboard() {
+            authView.classList.add('hidden');
+            dashboardView.classList.remove('hidden');
+            mainHeader.classList.remove('hidden');
+            switchTab('leads');
+        }
+
+        function logout() {
+            localStorage.removeItem('daludi_admin_token');
+            localStorage.removeItem('daludi_admin_user');
+            authCreds = null;
+            authView.classList.remove('hidden');
+            dashboardView.classList.add('hidden');
+            mainHeader.classList.add('hidden');
+
+            // clear tables
+            document.getElementById('leadsTableBody').innerHTML = '';
+            document.getElementById('usersTableBody').innerHTML = '';
+        }
+
+        // Auth handlers
+        async function handleAuth(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+
+            if (!username || !password) return;
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Aguarde...';
+            authFeedback.className = 'feedback-msg hidden';
+
+            try {
+                const endpoint = isLoginMode ? '/admin-auth' : '/admin-register';
+                const response = await fetch(API_URL + endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const json = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(json.error || 'Erro na requisição');
+                }
+
+                if (isLoginMode) {
+                    // Save credentials for Basic Auth in subsequent requests
+                    const token = 'Basic ' + btoa(`${username}:${password}`);
+                    localStorage.setItem('daludi_admin_token', token);
+                    localStorage.setItem('daludi_admin_user', username);
+                    authCreds = token;
+
+                    document.getElementById('welcomeUser').textContent = `Olá, ${username}`;
+                    showDashboard();
+                } else {
+                    showMessage(json.data.message);
+                    // Switch back to login mode so user can wait
+                    setTimeout(() => {
+                        isLoginMode = false; // toggle will flip it to true
+                        toggleAuthMode(new CustomEvent('dummy'));
+                    }, 3000);
+                }
+
+            } catch (err) {
+                showMessage(err.message, true);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = isLoginMode ? 'Entrar' : 'Solicitar Cadastro';
+            }
+        }
+
+        // Data Fetching
+        let currentLeads = []; // Armazena os leads brutos da API
+        let filteredLeads = []; // Armazena os leads filtrados
+
+        // Formata strings como "lead_inicial" para "Lead Inicial" ou "HOME_FORM" para "Home Form"
+        function formatBadgeName(str) {
+            if (!str) return '-';
+            return str.toString().toLowerCase().split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+        }
+
+        function showLeadDetails(id) {
+            const lead = currentLeads.find(l => l.id === id);
+            if (!lead) return;
+
+            const excludeKeys = ['id', 'created_at', 'updated_at'];
+            let html = '';
+            for (const [key, value] of Object.entries(lead)) {
+                if (excludeKeys.includes(key) || value == null || value === '') continue;
+
+                let displayValue = String(value).toUpperCase();
+                if (key.toLowerCase() === 'email') {
+                    displayValue = String(value).toLowerCase();
+                }
+
+                html += `
+                    <div class="detail-row">
+                        <div class="detail-label">${formatBadgeName(key)}</div>
+                        <div class="detail-value">${key.toLowerCase() === 'email' ? displayValue : formatBadgeName(value)}</div>
+                    </div>
+                `;
+            }
+            html += `
+                <div class="detail-row">
+                    <div class="detail-label">Criado Em</div>
+                    <div class="detail-value">${new Date(lead.created_at).toLocaleString('pt-BR')}</div>
+                </div>
+            `;
+
+            document.getElementById('leadDetailsContent').innerHTML = html;
+            document.getElementById('leadModal').style.display = 'flex';
+        }
+
+        function closeLeadModal() {
+            document.getElementById('leadModal').style.display = 'none';
+        }
+
+        let currentSort = { col: 'created_at', dir: 'desc', type: 'date' };
+
+        function initFilters() {
+            const dateTo = new Date();
+            const dateFrom = new Date();
+            dateFrom.setDate(dateFrom.getDate() - 30); // Últimos 30 dias
+
+            const pad = (n) => n.toString().padStart(2, '0');
+            const formatData = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+
+            document.getElementById('filterDateTo').value = formatData(dateTo);
+            document.getElementById('filterDateFrom').value = formatData(dateFrom);
+            document.getElementById('filterOrigem').value = '';
+            document.getElementById('filterStatus').value = '';
+        }
+
+        function clearFilters() {
+            document.getElementById('filterDateTo').value = '';
+            document.getElementById('filterDateFrom').value = '';
+            document.getElementById('filterOrigem').value = '';
+            document.getElementById('filterStatus').value = '';
+            applyFilters();
+        }
+
+        function populateFilterDropdowns() {
+            const origens = new Set();
+            const statuses = new Set();
+            currentLeads.forEach(l => {
+                if (l.origem) origens.add(l.origem);
+                if (l.status) statuses.add(l.status);
+            });
+
+            const origemSelect = document.getElementById('filterOrigem');
+            const currentOrigem = origemSelect.value;
+            origemSelect.innerHTML = '<option value="">Todas as Origens</option>' + [...origens].map(o => `<option value="${o}">${formatBadgeName(o)}</option>`).join('');
+            origemSelect.value = currentOrigem;
+
+            const statusSelect = document.getElementById('filterStatus');
+            const currentStatus = statusSelect.value;
+            statusSelect.innerHTML = '<option value="">Todos os Status</option>' + [...statuses].map(s => `<option value="${s}">${formatBadgeName(s)}</option>`).join('');
+            statusSelect.value = currentStatus;
+        }
+
+        function applyFilters() {
+            const dateFromVal = document.getElementById('filterDateFrom').value;
+            const dateToVal = document.getElementById('filterDateTo').value;
+            const origemVal = document.getElementById('filterOrigem').value;
+            const statusVal = document.getElementById('filterStatus').value;
+
+            let fromTime = dateFromVal ? new Date(dateFromVal + 'T00:00:00').getTime() : 0;
+            let toTime = dateToVal ? new Date(dateToVal + 'T23:59:59').getTime() : Infinity;
+
+            filteredLeads = currentLeads.filter(lead => {
+                const leadTime = new Date(lead.created_at).getTime();
+                if (leadTime < fromTime || leadTime > toTime) return false;
+                if (origemVal && lead.origem !== origemVal) return false;
+                if (statusVal && lead.status !== statusVal) return false;
+                return true;
+            });
+
+            performSort();
+        }
+
+        function performSort() {
+            filteredLeads.sort((a, b) => {
+                let valA = a[currentSort.col] || '';
+                let valB = b[currentSort.col] || '';
+
+                if (currentSort.type === 'string') {
+                    valA = valA.toString().toLowerCase();
+                    valB = valB.toString().toLowerCase();
+                } else if (currentSort.type === 'date') {
+                    valA = new Date(valA).getTime();
+                    valB = new Date(valB).getTime();
+                }
+
+                if (valA < valB) return currentSort.dir === 'asc' ? -1 : 1;
+                if (valA > valB) return currentSort.dir === 'asc' ? 1 : -1;
+                return 0;
+            });
+            renderLeadsTable();
+        }
+
+        function sortTable(column, type, headerElement) {
+            if (currentSort.col === column) {
+                currentSort.dir = currentSort.dir === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.col = column;
+                currentSort.type = type;
+                currentSort.dir = 'asc';
+            }
+
+            const allHeaders = document.querySelectorAll('#tabLeads th');
+            allHeaders.forEach(th => {
+                th.classList.remove('sort-asc', 'sort-desc');
+            });
+            if (currentSort.dir === 'asc') {
+                headerElement.classList.add('sort-asc');
+            } else {
+                headerElement.classList.add('sort-desc');
+            }
+
+            performSort();
+        }
+
+        function renderLeadsTable() {
+            const tbody = document.getElementById('leadsTableBody');
+
+            if (filteredLeads.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" class="empty-state">Nenhum lead encontrado com os filtros atuais.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = filteredLeads.map(lead => {
+                const nome = (lead.nome || '-').toUpperCase();
+                const empresa = (lead.empresa || '-').toUpperCase();
+                const cargo = (lead.cargo || '-').toUpperCase();
+                const email = lead.email ? lead.email.toLowerCase() : '-';
+                const origem = formatBadgeName(lead.origem);
+                const status = formatBadgeName(lead.status);
+
+                return `
+                <tr style="cursor: pointer; transition: background 0.2s;" onclick="showLeadDetails('${lead.id}')" title="Clique para ver todos os detalhes">
+                    <td style="font-weight: 500">${nome}</td>
+                    <td>${empresa}</td>
+                    <td>${cargo}</td>
+                    <td>${lead.whatsapp || '-'}</td>
+                    <td>${email}</td>
+                    <td><span class="status-badge status-approved">${origem}</span></td>
+                    <td><span class="status-badge ${lead.status === 'lead_inicial' ? 'status-pending' : 'status-approved'}">${status}</span></td>
+                    <td style="color: var(--text-muted)">${new Date(lead.created_at).toLocaleDateString('pt-BR')}</td>
+                </tr>
+                `;
+            }).join('');
+        }
+
+        async function fetchLeads() {
+            const tbody = document.getElementById('leadsTableBody');
+            tbody.innerHTML = '<tr><td colspan="8" class="empty-state">Carregando leads...</td></tr>';
+
+            try {
+                const response = await fetch(API_URL + '/admin-leads-get-all', {
+                    headers: { 'Authorization': authCreds }
+                });
+
+                if (response.status === 401) {
+                    logout();
+                    alert('Sessão expirada ou não autorizada.');
+                    return;
+                }
+
+                const json = await response.json();
+                const leads = json.data || [];
+                currentLeads = leads;
+
+                populateFilterDropdowns();
+                initFilters();
+
+                const dateHeader = document.querySelector('th.sort-desc') || document.querySelector('th.sort-asc');
+                if (dateHeader) {
+                    currentSort.col = 'created_at';
+                    currentSort.type = 'date';
+                    currentSort.dir = dateHeader.classList.contains('sort-asc') ? 'asc' : 'desc';
+                }
+
+                applyFilters();
+
+            } catch (e) {
+                tbody.innerHTML = `<tr><td colspan="8" class="empty-state" style="color: #ff4444">Erro ao carregar leads: ${e.message}</td></tr>`;
+            }
+        }
+
+        async function fetchUsers() {
+            const tbody = document.getElementById('usersTableBody');
+            tbody.innerHTML = '<tr><td colspan="4" class="empty-state">Carregando usuários...</td></tr>';
+
+            try {
+                const response = await fetch(API_URL + '/admin-users-manage', {
+                    headers: { 'Authorization': authCreds }
+                });
+
+                if (response.status === 401) {
+                    logout();
+                    alert('Sessão expirada ou não autorizada.');
+                    return;
+                }
+
+                const json = await response.json();
+                const users = json.data || [];
+
+                if (users.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="4" class="empty-state">Nenhum usuário no sistema.</td></tr>';
+                    return;
+                }
+
+                tbody.innerHTML = users.map(u => {
+                    const isPending = u.status === 'pending';
+                    const isBlocked = u.status === 'blocked';
+                    const isRoot = u.username === 'root';
+
+                    let actions = '-';
+                    if (!isRoot) {
+                        if (isPending || isBlocked) {
+                            actions = `<button class="action-btn" onclick="updateUserStatus('${u.id}', 'approved')">Aprovar</button>`;
+                        }
+                        if (!isBlocked && !isPending) {
+                            actions = `<button class="action-btn reject" onclick="updateUserStatus('${u.id}', 'blocked')">Bloquear</button>`;
+                        }
+                    } else {
+                        actions = '<span class="status-badge" style="background:transparent;color:var(--text-muted);border:1px solid var(--border)">Inalterável</span>';
+                    }
+
+                    return `
+                        <tr>
+                            <td style="font-weight: 500">${u.username}</td>
+                            <td><span class="status-badge status-${u.status}">${u.status === 'approved' ? 'Aprovado' :
+                            u.status === 'pending' ? 'Pendente' : 'Bloqueado'
+                        }</span></td>
+                            <td style="color: var(--text-muted)">${new Date(u.created_at).toLocaleDateString('pt-BR')}</td>
+                            <td>${actions}</td>
+                        </tr>
+                    `;
+                }).join('');
+
+            } catch (e) {
+                tbody.innerHTML = `<tr><td colspan="4" class="empty-state" style="color: #ff4444">Erro ao carregar usuários.</td></tr>`;
+            }
+        }
+
+        async function updateUserStatus(userId, targetStatus) {
+            try {
+                const response = await fetch(API_URL + '/admin-users-manage', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': authCreds,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ userId, targetStatus })
+                });
+
+                if (!response.ok) {
+                    const json = await response.json();
+                    throw new Error(json.error || 'Erro ao atualizar');
+                }
+
+                // Refresh table
+                fetchUsers();
+            } catch (e) {
+                alert('Erro: ' + e.message);
+            }
+        }
+    </script>
+</body>
+
+</html>
