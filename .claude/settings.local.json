@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp add --help 2>&1 | head -30)",
+      "Bash(claude plugin --help 2>&1; claude marketplace --help 2>&1)",
+      "Bash(claude plugin marketplace --help 2>&1)",
+      "Bash(claude plugin marketplace add obra/superpowers-marketplace 2>&1)",
+      "Bash(claude plugin marketplace list 2>&1)",
+      "Bash(claude plugin list 2>&1)",
+      "Bash(claude plugin install superpowers@superpowers-marketplace 2>&1)",
+      "Bash(ls ~/.claude/plugins/ 2>&1 && cat ~/.claude/settings.json 2>&1 | python3 -m json.tool 2>/dev/null | grep -A5 -i plugin)",
+      "Bash(claude doctor)"
+    ]
+  }
+}
