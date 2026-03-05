@@ -21,16 +21,16 @@ Para otimizar o carregamento e simplificar o deploy, o projeto utiliza um padrã
 2. **Deploy Instantâneo**: Basta fazer o upload do arquivo `index.html`.
 3. **Performance Crítica**: Renderização imediata sem bloqueios de recursos externos.
 
-## ⚙️ Componentes Principais
+## 🏗️ Arquitetura Híbrida (Serverless)
 
-### Fluxo de Animação
-Utilizamos o **Intersection Observer API** para ativar animações de scroll-reveal, garantindo que o navegador não processe animações fora da área visível (viewport).
+Embora a Landing Page seja um arquivo estático para máxima performance, o projeto utiliza uma infraestrutura híbrida com backend serverless:
 
-### Sistema de Partículas (Hero)
-Implementado via **HTML5 Canvas**, oferecendo uma rede neural interativa que reage ao movimento do cursor em tempo real, sem impactar a performance do scroll principal.
+- **Frontend**: Hospedagem estática (CDN) para o `index.html`.
+- **Backend (Edge)**: As requisições de formulário e autenticação são processadas por **Edge Functions** hospedadas na **InsForge**.
+- **Data Layer**: Banco de Dados Postgres (via Supabase/InsForge) para persistência de leads e usuários.
+- **Email Service**: Integração com **Resend** para disparos transacionais.
 
-### Formulário de Contato
-Integração via AJAX para evitar recarregamento de página, garantindo uma UX fluida para o usuário final.
+Veja mais detalhes na [Documentação da API](./backend-api.md) e no [Esquema do Banco](./database-schema.md).
 
 ---
-*DALUDI Architecture — v1.0 — Fevereiro 2026*
+*DALUDI Architecture — v1.1 — Março 2026*
