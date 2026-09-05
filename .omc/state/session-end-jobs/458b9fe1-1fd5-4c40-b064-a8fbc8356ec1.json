@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "jobId": "739ca5c5-58e7-4a94-afb6-b83d71a99590",
+  "sessionId": "458b9fe1-1fd5-4c40-b064-a8fbc8356ec1",
+  "scopeKey": "70fd411c91bf885b197961ac23a26b9b74a1a5bd53e7714ed2963702b9a21654",
+  "revision": 9,
+  "createdAt": "2026-08-31T23:20:47.735Z",
+  "updatedAt": "2026-08-31T23:21:17.990Z",
+  "producerGraceExpiresAt": "2026-08-31T23:21:17.735Z",
+  "bestEffortDeadlineAt": "2026-08-31T23:22:08.735Z",
+  "producers": {
+    "core": {
+      "state": "no-op",
+      "sealedAt": "2026-08-31T23:21:17.816Z",
+      "sealedBy": "recovery"
+    },
+    "wiki": {
+      "state": "no-op",
+      "sealedAt": "2026-08-31T23:20:47.735Z",
+      "sealedBy": "wiki-producer"
+    }
+  },
+  "actions": {
+    "foreground-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "expired",
+      "attempts": 0,
+      "idempotencyKey": "febf6dba2f2536433960a07f7cedce72e946b43ced0896570df80f017b8914d2",
+      "payload": {},
+      "budgetMs": 9000,
+      "lastOutcomeCode": "required-core-producer-absent"
+    },
+    "wiki-capture": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "completed",
+      "attempts": 0,
+      "idempotencyKey": "1719cd1ef5b51e0269b78c4cb8c9308c9c1f7b82fd1c067fc034c060f23863f5",
+      "payload": {},
+      "budgetMs": 9000,
+      "completedAt": "2026-08-31T23:20:47.735Z"
+    },
+    "team-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "expired",
+      "attempts": 0,
+      "idempotencyKey": "cee6ac31df545408e1e822247ac249b3f8182a98a5fe8e448ae3b251e55bdee1",
+      "payload": {},
+      "budgetMs": 9000,
+      "lastOutcomeCode": "required-core-producer-absent"
+    },
+    "python-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "expired",
+      "attempts": 0,
+      "idempotencyKey": "1f1370c4ac056606059d517e2f106b602d8cbcb04587b3fcc5f3b9f89e649cd0",
+      "payload": {},
+      "budgetMs": 9000,
+      "lastOutcomeCode": "required-core-producer-absent"
+    },
+    "reply-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "expired",
+      "attempts": 0,
+      "idempotencyKey": "0b3a8b47c28b26d56aca004d4f572b96c118f16819c0d35162418816f9a5420a",
+      "payload": {},
+      "budgetMs": 9000,
+      "lastOutcomeCode": "required-core-producer-absent"
+    },
+    "callback": {
+      "class": "best-effort",
+      "phase": "deferred-best-effort",
+      "status": "expired",
+      "attempts": 0,
+      "idempotencyKey": "d068ede2655bf89e0c0950e087d0603d7dcf45538e94f20a654d08c6f4841895",
+      "payload": {},
+      "budgetMs": 2000,
+      "lastOutcomeCode": "best-effort-core-producer-absent"
+    },
+    "notification": {
+      "class": "best-effort",
+      "phase": "deferred-best-effort",
+      "status": "expired",
+      "attempts": 0,
+      "idempotencyKey": "89c0438ff63097ce04beb60efb87292ff68a7af350a0ee331f3de9dbf42d62fc",
+      "payload": {},
+      "budgetMs": 2000,
+      "lastOutcomeCode": "best-effort-core-producer-absent"
+    },
+    "openclaw": {
+      "class": "best-effort",
+      "phase": "deferred-best-effort",
+      "status": "expired",
+      "attempts": 0,
+      "idempotencyKey": "31fe8f6e1cf204e27006de511df257326fdd98655122ca437013e8779ffc735b",
+      "payload": {},
+      "budgetMs": 2000,
+      "lastOutcomeCode": "best-effort-core-producer-absent"
+    }
+  },
+  "owner": null,
+  "phase": "complete",
+  "completion": {
+    "completedAt": "2026-08-31T23:21:17.900Z",
+    "terminalDigest": "7ddb38100e3ea7d3ba0f2fb2925f92522b151cd1310532e96e298950e8776ead",
+    "terminalRevision": 8
+  }
+}

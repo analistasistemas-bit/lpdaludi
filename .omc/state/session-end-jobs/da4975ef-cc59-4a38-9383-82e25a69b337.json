@@ -1,0 +1,324 @@
+{
+  "version": 1,
+  "jobId": "5d4e5024-1222-4f1a-b5ff-a1509a6b167a",
+  "sessionId": "da4975ef-cc59-4a38-9383-82e25a69b337",
+  "scopeKey": "70fd411c91bf885b197961ac23a26b9b74a1a5bd53e7714ed2963702b9a21654",
+  "revision": 53,
+  "createdAt": "2026-08-31T23:20:47.565Z",
+  "updatedAt": "2026-08-31T23:21:19.698Z",
+  "producerGraceExpiresAt": "2026-08-31T23:21:17.566Z",
+  "bestEffortDeadlineAt": "2026-08-31T23:22:08.566Z",
+  "producers": {
+    "core": {
+      "state": "sealed",
+      "intentKey": "f998ba27733391beb85ecf75a7e4f9175bea29bd69a84386a666d5e0e6ec39fb",
+      "payloadDigest": "f998ba27733391beb85ecf75a7e4f9175bea29bd69a84386a666d5e0e6ec39fb",
+      "sealedAt": "2026-08-31T23:21:17.906Z",
+      "sealedBy": "recovery"
+    },
+    "wiki": {
+      "state": "no-op",
+      "sealedAt": "2026-08-31T23:20:47.565Z",
+      "sealedBy": "wiki-producer"
+    }
+  },
+  "actions": {
+    "foreground-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "completed",
+      "attempts": 1,
+      "idempotencyKey": "febf6dba2f2536433960a07f7cedce72e946b43ced0896570df80f017b8914d2",
+      "payload": {
+        "transcriptPath": "/Users/diego/.claude/projects/-Users-diego-Desktop-IA-LandingPage-Daludi--maestri-roles-dc9c02a2-1567-4fcf-8110-f540c58dff76/da4975ef-cc59-4a38-9383-82e25a69b337.jsonl",
+        "cwd": "/Users/diego/Desktop/IA/LandingPage_Daludi/.maestri/roles/dc9c02a2-1567-4fcf-8110-f540c58dff76",
+        "reason": "other",
+        "input": {
+          "session_id": "da4975ef-cc59-4a38-9383-82e25a69b337",
+          "transcript_path": "/Users/diego/.claude/projects/-Users-diego-Desktop-IA-LandingPage-Daludi--maestri-roles-dc9c02a2-1567-4fcf-8110-f540c58dff76/da4975ef-cc59-4a38-9383-82e25a69b337.jsonl",
+          "cwd": "/Users/diego/Desktop/IA/LandingPage_Daludi/.maestri/roles/dc9c02a2-1567-4fcf-8110-f540c58dff76",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "da4975ef-cc59-4a38-9383-82e25a69b337",
+          "ended_at": "2026-08-31T23:20:47.562Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 9000,
+      "claimedAt": "2026-08-31T23:21:17.629Z",
+      "runner": {
+        "attempt": 1,
+        "runnerNonce": "ec61622d-429e-4058-b11d-68fd44061ee7",
+        "phase": "terminal",
+        "deadlineAt": "2026-08-31T23:21:27.568Z"
+      },
+      "lastOutcomeCode": "completed",
+      "completedAt": "2026-08-31T23:21:17.881Z"
+    },
+    "wiki-capture": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "completed",
+      "attempts": 0,
+      "idempotencyKey": "1719cd1ef5b51e0269b78c4cb8c9308c9c1f7b82fd1c067fc034c060f23863f5",
+      "payload": {},
+      "budgetMs": 9000,
+      "completedAt": "2026-08-31T23:20:47.565Z"
+    },
+    "team-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "completed",
+      "attempts": 1,
+      "idempotencyKey": "cee6ac31df545408e1e822247ac249b3f8182a98a5fe8e448ae3b251e55bdee1",
+      "payload": {
+        "transcriptPath": "/Users/diego/.claude/projects/-Users-diego-Desktop-IA-LandingPage-Daludi--maestri-roles-dc9c02a2-1567-4fcf-8110-f540c58dff76/da4975ef-cc59-4a38-9383-82e25a69b337.jsonl",
+        "cwd": "/Users/diego/Desktop/IA/LandingPage_Daludi/.maestri/roles/dc9c02a2-1567-4fcf-8110-f540c58dff76",
+        "reason": "other",
+        "input": {
+          "session_id": "da4975ef-cc59-4a38-9383-82e25a69b337",
+          "transcript_path": "/Users/diego/.claude/projects/-Users-diego-Desktop-IA-LandingPage-Daludi--maestri-roles-dc9c02a2-1567-4fcf-8110-f540c58dff76/da4975ef-cc59-4a38-9383-82e25a69b337.jsonl",
+          "cwd": "/Users/diego/Desktop/IA/LandingPage_Daludi/.maestri/roles/dc9c02a2-1567-4fcf-8110-f540c58dff76",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "da4975ef-cc59-4a38-9383-82e25a69b337",
+          "ended_at": "2026-08-31T23:20:47.562Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 9000,
+      "claimedAt": "2026-08-31T23:21:18.002Z",
+      "runner": {
+        "attempt": 1,
+        "runnerNonce": "77c0c85c-c243-4b6f-91dd-5d81dab2f7e0",
+        "phase": "terminal",
+        "deadlineAt": "2026-08-31T23:21:27.568Z"
+      },
+      "lastOutcomeCode": "completed",
+      "completedAt": "2026-08-31T23:21:18.221Z"
+    },
+    "python-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "completed",
+      "attempts": 1,
+      "idempotencyKey": "1f1370c4ac056606059d517e2f106b602d8cbcb04587b3fcc5f3b9f89e649cd0",
+      "payload": {
+        "transcriptPath": "/Users/diego/.claude/projects/-Users-diego-Desktop-IA-LandingPage-Daludi--maestri-roles-dc9c02a2-1567-4fcf-8110-f540c58dff76/da4975ef-cc59-4a38-9383-82e25a69b337.jsonl",
+        "cwd": "/Users/diego/Desktop/IA/LandingPage_Daludi/.maestri/roles/dc9c02a2-1567-4fcf-8110-f540c58dff76",
+        "reason": "other",
+        "input": {
+          "session_id": "da4975ef-cc59-4a38-9383-82e25a69b337",
+          "transcript_path": "/Users/diego/.claude/projects/-Users-diego-Desktop-IA-LandingPage-Daludi--maestri-roles-dc9c02a2-1567-4fcf-8110-f540c58dff76/da4975ef-cc59-4a38-9383-82e25a69b337.jsonl",
+          "cwd": "/Users/diego/Desktop/IA/LandingPage_Daludi/.maestri/roles/dc9c02a2-1567-4fcf-8110-f540c58dff76",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "da4975ef-cc59-4a38-9383-82e25a69b337",
+          "ended_at": "2026-08-31T23:20:47.562Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 9000,
+      "claimedAt": "2026-08-31T23:21:18.284Z",
+      "runner": {
+        "attempt": 1,
+        "runnerNonce": "8a238379-8a03-49b3-9563-feaead40aa1e",
+        "phase": "terminal",
+        "deadlineAt": "2026-08-31T23:21:27.568Z"
+      },
+      "lastOutcomeCode": "completed",
+      "completedAt": "2026-08-31T23:21:18.545Z"
+    },
+    "reply-cleanup": {
+      "class": "required",
+      "phase": "deferred-required",
+      "status": "completed",
+      "attempts": 1,
+      "idempotencyKey": "0b3a8b47c28b26d56aca004d4f572b96c118f16819c0d35162418816f9a5420a",
+      "payload": {
+        "transcriptPath": "/Users/diego/.claude/projects/-Users-diego-Desktop-IA-LandingPage-Daludi--maestri-roles-dc9c02a2-1567-4fcf-8110-f540c58dff76/da4975ef-cc59-4a38-9383-82e25a69b337.jsonl",
+        "cwd": "/Users/diego/Desktop/IA/LandingPage_Daludi/.maestri/roles/dc9c02a2-1567-4fcf-8110-f540c58dff76",
+        "reason": "other",
+        "input": {
+          "session_id": "da4975ef-cc59-4a38-9383-82e25a69b337",
+          "transcript_path": "/Users/diego/.claude/projects/-Users-diego-Desktop-IA-LandingPage-Daludi--maestri-roles-dc9c02a2-1567-4fcf-8110-f540c58dff76/da4975ef-cc59-4a38-9383-82e25a69b337.jsonl",
+          "cwd": "/Users/diego/Desktop/IA/LandingPage_Daludi/.maestri/roles/dc9c02a2-1567-4fcf-8110-f540c58dff76",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "da4975ef-cc59-4a38-9383-82e25a69b337",
+          "ended_at": "2026-08-31T23:20:47.562Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 9000,
+      "claimedAt": "2026-08-31T23:21:18.579Z",
+      "runner": {
+        "attempt": 1,
+        "runnerNonce": "2dbb11af-095e-45da-ab61-4817a87c954c",
+        "phase": "terminal",
+        "deadlineAt": "2026-08-31T23:21:27.568Z"
+      },
+      "lastOutcomeCode": "completed",
+      "completedAt": "2026-08-31T23:21:18.776Z"
+    },
+    "callback": {
+      "class": "best-effort",
+      "phase": "deferred-best-effort",
+      "status": "completed",
+      "attempts": 1,
+      "idempotencyKey": "d068ede2655bf89e0c0950e087d0603d7dcf45538e94f20a654d08c6f4841895",
+      "payload": {
+        "transcriptPath": "/Users/diego/.claude/projects/-Users-diego-Desktop-IA-LandingPage-Daludi--maestri-roles-dc9c02a2-1567-4fcf-8110-f540c58dff76/da4975ef-cc59-4a38-9383-82e25a69b337.jsonl",
+        "cwd": "/Users/diego/Desktop/IA/LandingPage_Daludi/.maestri/roles/dc9c02a2-1567-4fcf-8110-f540c58dff76",
+        "reason": "other",
+        "input": {
+          "session_id": "da4975ef-cc59-4a38-9383-82e25a69b337",
+          "transcript_path": "/Users/diego/.claude/projects/-Users-diego-Desktop-IA-LandingPage-Daludi--maestri-roles-dc9c02a2-1567-4fcf-8110-f540c58dff76/da4975ef-cc59-4a38-9383-82e25a69b337.jsonl",
+          "cwd": "/Users/diego/Desktop/IA/LandingPage_Daludi/.maestri/roles/dc9c02a2-1567-4fcf-8110-f540c58dff76",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "da4975ef-cc59-4a38-9383-82e25a69b337",
+          "ended_at": "2026-08-31T23:20:47.562Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 2000,
+      "claimedAt": "2026-08-31T23:21:18.823Z",
+      "runner": {
+        "attempt": 1,
+        "runnerNonce": "f235b573-d50a-4252-8f9d-65b4a2de7918",
+        "phase": "terminal",
+        "deadlineAt": "2026-08-31T23:21:27.568Z"
+      },
+      "lastOutcomeCode": "completed",
+      "completedAt": "2026-08-31T23:21:19.027Z"
+    },
+    "notification": {
+      "class": "best-effort",
+      "phase": "deferred-best-effort",
+      "status": "completed",
+      "attempts": 1,
+      "idempotencyKey": "89c0438ff63097ce04beb60efb87292ff68a7af350a0ee331f3de9dbf42d62fc",
+      "payload": {
+        "transcriptPath": "/Users/diego/.claude/projects/-Users-diego-Desktop-IA-LandingPage-Daludi--maestri-roles-dc9c02a2-1567-4fcf-8110-f540c58dff76/da4975ef-cc59-4a38-9383-82e25a69b337.jsonl",
+        "cwd": "/Users/diego/Desktop/IA/LandingPage_Daludi/.maestri/roles/dc9c02a2-1567-4fcf-8110-f540c58dff76",
+        "reason": "other",
+        "input": {
+          "session_id": "da4975ef-cc59-4a38-9383-82e25a69b337",
+          "transcript_path": "/Users/diego/.claude/projects/-Users-diego-Desktop-IA-LandingPage-Daludi--maestri-roles-dc9c02a2-1567-4fcf-8110-f540c58dff76/da4975ef-cc59-4a38-9383-82e25a69b337.jsonl",
+          "cwd": "/Users/diego/Desktop/IA/LandingPage_Daludi/.maestri/roles/dc9c02a2-1567-4fcf-8110-f540c58dff76",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "da4975ef-cc59-4a38-9383-82e25a69b337",
+          "ended_at": "2026-08-31T23:20:47.562Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 2000,
+      "claimedAt": "2026-08-31T23:21:19.081Z",
+      "runner": {
+        "attempt": 1,
+        "runnerNonce": "495c84b7-13cc-4464-bb87-227de9cc9d33",
+        "phase": "terminal",
+        "deadlineAt": "2026-08-31T23:21:27.568Z"
+      },
+      "lastOutcomeCode": "completed",
+      "completedAt": "2026-08-31T23:21:19.359Z"
+    },
+    "openclaw": {
+      "class": "best-effort",
+      "phase": "deferred-best-effort",
+      "status": "completed",
+      "attempts": 1,
+      "idempotencyKey": "31fe8f6e1cf204e27006de511df257326fdd98655122ca437013e8779ffc735b",
+      "payload": {
+        "transcriptPath": "/Users/diego/.claude/projects/-Users-diego-Desktop-IA-LandingPage-Daludi--maestri-roles-dc9c02a2-1567-4fcf-8110-f540c58dff76/da4975ef-cc59-4a38-9383-82e25a69b337.jsonl",
+        "cwd": "/Users/diego/Desktop/IA/LandingPage_Daludi/.maestri/roles/dc9c02a2-1567-4fcf-8110-f540c58dff76",
+        "reason": "other",
+        "input": {
+          "session_id": "da4975ef-cc59-4a38-9383-82e25a69b337",
+          "transcript_path": "/Users/diego/.claude/projects/-Users-diego-Desktop-IA-LandingPage-Daludi--maestri-roles-dc9c02a2-1567-4fcf-8110-f540c58dff76/da4975ef-cc59-4a38-9383-82e25a69b337.jsonl",
+          "cwd": "/Users/diego/Desktop/IA/LandingPage_Daludi/.maestri/roles/dc9c02a2-1567-4fcf-8110-f540c58dff76",
+          "hook_event_name": "SessionEnd",
+          "reason": "other"
+        },
+        "metrics": {
+          "session_id": "da4975ef-cc59-4a38-9383-82e25a69b337",
+          "ended_at": "2026-08-31T23:20:47.562Z",
+          "reason": "other",
+          "agents_spawned": 0,
+          "agents_completed": 0,
+          "modes_used": []
+        },
+        "initialTeamNames": [],
+        "openClawEnabled": false,
+        "openClawRouting": {}
+      },
+      "budgetMs": 2000,
+      "claimedAt": "2026-08-31T23:21:19.401Z",
+      "runner": {
+        "attempt": 1,
+        "runnerNonce": "5a71c74d-52b8-4dbf-b723-4961ca93f546",
+        "phase": "terminal",
+        "deadlineAt": "2026-08-31T23:21:27.568Z"
+      },
+      "lastOutcomeCode": "completed",
+      "completedAt": "2026-08-31T23:21:19.604Z"
+    }
+  },
+  "owner": null,
+  "phase": "complete",
+  "completion": {
+    "completedAt": "2026-08-31T23:21:19.655Z",
+    "terminalDigest": "6b0d350a0e5ab191bba3fcba09e03bcb634d1941f3feabd5caf9de0d66bdc925",
+    "terminalRevision": 52
+  }
+}

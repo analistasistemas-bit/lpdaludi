@@ -1,0 +1,88 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1788271402658,
+  "projectRoot": "/Users/diego/Desktop/IA/LandingPage_Daludi",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "docs"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "admin": {
+      "path": "admin",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1788271401906,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "backend": {
+      "path": "backend",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1788271401912,
+      "keyFiles": []
+    },
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation",
+      "fileCount": 16,
+      "lastAccessed": 1788271401915,
+      "keyFiles": [
+        "DALUDI_Arquitetura_Operacional.pdf",
+        "DOCUMENTACAO_FUNIL.md",
+        "LandingPage_Daludi.code-workspace",
+        "README.md",
+        "admin-guide.md"
+      ]
+    },
+    "imagens_daludi": {
+      "path": "imagens_daludi",
+      "purpose": null,
+      "fileCount": 15,
+      "lastAccessed": 1788271401917,
+      "keyFiles": [
+        "Banner X.png",
+        "Favicon.png",
+        "FlatvetorialLimpa.png",
+        "Iconepararedessociais.png",
+        "Logo Rede social Instagram.png"
+      ]
+    },
+    "memory": {
+      "path": "memory",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1788271401918,
+      "keyFiles": [
+        "LogMaestri.md"
+      ]
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}
